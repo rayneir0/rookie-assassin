@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cb4g7oofc50oy"]
 
 [ext_resource type="PackedScene" uid="uid://dp5k2og2bj4nt" path="res://scenes/player.tscn" id="1_kvoyw"]
-[ext_resource type="Texture2D" uid="uid://8a08o45ergaa" path="res://assets/tilemap.png" id="1_yttn4"]
+[ext_resource type="Texture2D" uid="uid://duwxclu86fc22" path="res://assets/tilemap.png" id="1_yttn4"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_vgw24"]
 [ext_resource type="PackedScene" uid="uid://jiogikes0nat" path="res://scenes/enemy_knight.tscn" id="4_2lxrx"]
 
