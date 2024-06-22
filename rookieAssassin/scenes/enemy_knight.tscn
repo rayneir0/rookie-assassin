@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jiogikes0nat"]
+[gd_scene load_steps=10 format=3 uid="uid://jiogikes0nat"]
 
 [ext_resource type="Script" path="res://scripts/enemy_knight.gd" id="1_3o5sd"]
 [ext_resource type="Texture2D" uid="uid://bcpoye6qftgsm" path="res://assets/knight.png" id="1_08os1"]
@@ -38,54 +38,16 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jegto"]
-size = Vector2(16, 9)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qux44"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xsvy"]
-radius = 14.0357
-
-[sub_resource type="Animation" id="Animation_1dtia"]
-resource_name = "death"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 8)]
-}
-
-[sub_resource type="Animation" id="Animation_kkigp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ukqr"]
-_data = {
-"RESET": SubResource("Animation_kkigp"),
-"death": SubResource("Animation_1dtia")
-}
+radius = 14.5602
 
 [node name="enemyKnight" type="CharacterBody2D"]
 visibility_layer = 2
 z_index = 2
 y_sort_enabled = true
-collision_layer = 4
+collision_layer = 5
 collision_mask = 2
 script = ExtResource("1_3o5sd")
 
@@ -96,19 +58,14 @@ autoplay = "idle"
 frame_progress = 0.572544
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 4.5)
-shape = SubResource("RectangleShape2D_jegto")
+position = Vector2(4, 1)
+shape = SubResource("CircleShape2D_qux44")
 
 [node name="player_killzone" parent="." instance=ExtResource("3_0y5p6")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_killzone"]
-position = Vector2(1, -1)
+position = Vector2(1, 0)
 rotation = -2.96082
 shape = SubResource("CircleShape2D_0xsvy")
-
-[node name="enemy_death" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6ukqr")
-}
 
 [connection signal="hidden" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_hidden"]

@@ -1,10 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmnc0h3qkeh0o"]
 
-[ext_resource type="Script" path="res://scenes/enemy_killzone.gd" id="1_jiu6r"]
+[ext_resource type="Script" path="res://scripts/enemy_killzone.gd" id="1_hynvh"]
 
 [node name="enemy_killzone" type="Area2D"]
+scale = Vector2(0.901184, 1.00394)
 collision_mask = 4
-script = ExtResource("1_jiu6r")
+script = ExtResource("1_hynvh")
 
 [node name="Timer" type="Timer" parent="."]
 
