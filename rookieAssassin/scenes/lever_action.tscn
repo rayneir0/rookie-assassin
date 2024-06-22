@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1ju8emowcm8p"]
+
+[ext_resource type="Script" path="res://scripts/lever.gd" id="2_byeow"]
+
+[node name="lever_action" type="Area2D"]
+script = ExtResource("2_byeow")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

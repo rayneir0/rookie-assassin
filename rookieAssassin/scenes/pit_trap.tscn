@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvlypa8barj1s"]
+
+[ext_resource type="Texture2D" uid="uid://duwxclu86fc22" path="res://assets/tilemap.png" id="1_cd40a"]
+[ext_resource type="PackedScene" uid="uid://bpfh8pkm6cnrk" path="res://scenes/player_killzone.tscn" id="2_y1g71"]
+[ext_resource type="PackedScene" uid="uid://bmnc0h3qkeh0o" path="res://scenes/enemy_killzone.tscn" id="3_3af0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyu1s"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nyla"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b487l"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6brks"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyaqi"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wj45"]
+atlas = ExtResource("1_cd40a")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyoj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyu1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nyla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b487l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6brks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyaqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wj45")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoesh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e28i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcql2"]
+size = Vector2(5, 20)
+
+[node name="pit_trap" type="Area2D"]
+
+[node name="pit_sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_cyoj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uoesh")
+
+[node name="player_killzone" parent="." instance=ExtResource("2_y1g71")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_killzone"]
+shape = SubResource("RectangleShape2D_e28i4")
+
+[node name="enemy_killzone" parent="." instance=ExtResource("3_3af0m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_killzone"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_pcql2")

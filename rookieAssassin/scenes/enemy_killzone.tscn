@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnc0h3qkeh0o"]
+
+[ext_resource type="Script" path="res://scenes/enemy_killzone.gd" id="1_jiu6r"]
+
+[node name="enemy_killzone" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_jiu6r")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
