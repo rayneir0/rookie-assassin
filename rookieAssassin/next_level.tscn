@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cgsu4mgp2epsr"]
+
+[node name="nextLevel" type="Area2D"]
