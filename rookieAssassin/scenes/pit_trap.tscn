@@ -62,9 +62,9 @@ animations = [{
 size = Vector2(5, 20)
 
 [node name="pit_trap" type="Area2D"]
+scale = Vector2(4.07926, 4.07926)
 
 [node name="pit_sprite" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_cyoj7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,12 +73,10 @@ shape = SubResource("RectangleShape2D_uoesh")
 [node name="player_killzone" parent="." instance=ExtResource("2_y1g71")]
 
 [node name="player_collision" type="CollisionShape2D" parent="player_killzone"]
-unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_e28i4")
 
 [node name="enemy_killzone" parent="." instance=ExtResource("3_3af0m")]
 
 [node name="enemy_collision" type="CollisionShape2D" parent="enemy_killzone"]
-unique_name_in_owner = true
 position = Vector2(8.87721, 0)
 shape = SubResource("RectangleShape2D_pcql2")

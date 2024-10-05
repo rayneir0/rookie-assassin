@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp5k2og2bj4nt"]
+[gd_scene load_steps=9 format=3 uid="uid://dp5k2og2bj4nt"]
 
 [ext_resource type="Texture2D" uid="uid://bwok7ujn8k84j" path="res://assets/character.png" id="1_3uejo"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ts0qp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sykv3"]
 atlas = ExtResource("1_3uejo")
@@ -32,16 +33,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jebjm"]
-radius = 5.0
+radius = 4.53805
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nunpp"]
 
 [node name="player" type="CharacterBody2D"]
 light_mask = 2
+z_index = 4
+y_sort_enabled = true
 collision_layer = 2
 motion_mode = 1
+script = ExtResource("1_ts0qp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
-position = Vector2(3, -9)
+position = Vector2(16, 4)
+scale = Vector2(3.22609, 3.22609)
 sprite_frames = SubResource("SpriteFrames_g58ex")
 animation = &"idle"
 autoplay = "idle"
@@ -49,5 +56,15 @@ frame_progress = 0.774684
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
-position = Vector2(4, -5)
+position = Vector2(16, 6)
+scale = Vector2(8.15452, 3.39183)
 shape = SubResource("CircleShape2D_jebjm")
+
+[node name="enemy_detection_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_detection_zone"]
+position = Vector2(15, 5)
+scale = Vector2(2.64739, 2.74429)
+shape = SubResource("CircleShape2D_nunpp")
+
+[connection signal="area_entered" from="enemy_detection_zone" to="." method="_on_enemy_detection_zone_area_entered"]

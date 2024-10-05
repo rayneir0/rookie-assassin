@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://drmi46ac8faa3"]
+
+[ext_resource type="Script" path="res://scripts/enemy_knight.gd" id="1_qh4ik"]
+[ext_resource type="PackedScene" uid="uid://jiogikes0nat" path="res://scenes/enemy_knight.tscn" id="2_hf1v5"]
+
+[sub_resource type="Curve2D" id="Curve2D_4f7mi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -113.707, -41.5597, 0, 0, 0, 0, -102.403, -42.8896, 0, 0, 0, 0, -101.738, 48.8742, 0, 0, 0, 0, 50.8691, 49.2067, 0, 0, 0, 0, 48.5418, -35.5751, 0, 0, 0, 0, 171.226, -36.905, 0, 0, 0, 0, 170.229, 61.8409, 0, 0, 0, 0, -112.045, 62.8383, 0, 0, 0, 0, -113.707, -41.5597)
+}
+point_count = 9
+
+[node name="Path2D" type="Path2D"]
+scale = Vector2(3, 3)
+curve = SubResource("Curve2D_4f7mi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(48.8054, -25.9727)
+rotation = -1.59824
+progress = 331.0
+script = ExtResource("1_qh4ik")
+
+[node name="enemyKnight" parent="PathFollow2D" instance=ExtResource("2_hf1v5")]

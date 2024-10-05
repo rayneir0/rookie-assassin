@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 100.0
+@export var speed : float = 200.0
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
@@ -21,3 +21,6 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	
+func player():
+	pass
