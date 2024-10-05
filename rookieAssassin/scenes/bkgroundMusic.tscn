@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://civ8pmn1akoys"]
+
+[ext_resource type="AudioStream" uid="uid://dlj67djem50e7" path="res://assets/rookieassassinLoop.wav" id="1_4ym0y"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_4ym0y")
+autoplay = true

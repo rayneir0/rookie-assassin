@@ -41,13 +41,6 @@ func _on_button_pressed():
 		play_animation()
 	lever_flipped = not lever_flipped
 
-func _on_level_1_toggle_lever():
-	_on_button_pressed()
-
-
-func _on_level_1_toggle_lever2():
-	#lever_sprite = %pit_sprite1
-	#enemy_collision = %enemy_collision1
-	#player_collision = %player_collision1
-	#pit_sprite = %lever_sprite1
-	_on_button_pressed()
+func _input(event):
+	if event.is_action_pressed("interact") : # Default space key mapping in Godot is "ui_select"
+		_on_button_pressed()

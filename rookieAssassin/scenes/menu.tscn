@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=3 uid="uid://lk1xa7yck62t"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_7w21j"]
+[ext_resource type="FontFile" uid="uid://dvpt4nojl1axq" path="res://assets/dogica.ttf" id="2_xhqp0"]
+
+[sub_resource type="Animation" id="Animation_g5nwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.121569, 0.121569, 0.121569, 0.517647)]
+}
+
+[sub_resource type="Animation" id="Animation_u7c1x"]
+resource_name = "fade_to_grey"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.121569, 0.121569, 0), Color(0.121569, 0.121569, 0.121569, 0.517647)]
+}
+
+[sub_resource type="Animation" id="Animation_6v10r"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.121569, 0.121569, 0.121569, 0.517647), Color(0.121569, 0.121569, 0.121569, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m6qs"]
+_data = {
+"RESET": SubResource("Animation_g5nwn"),
+"fade_to_grey": SubResource("Animation_u7c1x"),
+"fade_to_normal": SubResource("Animation_6v10r")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7w21j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 3
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+scale = Vector2(28.72, 16.2)
+color = Color(0.121569, 0.121569, 0.121569, 0.517647)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_7m6qs")
+}
+
+[node name="Text" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -149.0
+offset_right = 352.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Text"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/Text/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0.303351, 0.406864, 0.856039, 1)
+theme_override_fonts/normal_font = ExtResource("2_xhqp0")
+theme_override_font_sizes/normal_font_size = 33
+text = "ROOKIE ASSASSIN!
+
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Text/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("2_xhqp0")
+theme_override_font_sizes/normal_font_size = 19
+text = "Press SPACE to pause the game.
+
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Text/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/default_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_fonts/normal_font = ExtResource("2_xhqp0")
+theme_override_font_sizes/normal_font_size = 19
+text = "Hint: Kill the solder with the lever."
+fit_content = true
+autowrap_mode = 0
+
+[node name="Buttons" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 493.0
+offset_top = 375.0
+offset_right = 565.0
+offset_bottom = 441.0
+scale = Vector2(1.91455, 1.91455)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CanvasLayer/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xhqp0")
+button_mask = 3
+text = "PLAY"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="CanvasLayer/Buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xhqp0")
+button_mask = 3
+text = "QUIT"
+icon_alignment = 1
+
+[connection signal="animation_finished" from="CanvasLayer/ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/Buttons/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/VBoxContainer/Play" to="CanvasLayer" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

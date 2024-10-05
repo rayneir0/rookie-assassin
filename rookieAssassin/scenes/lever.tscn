@@ -98,13 +98,10 @@ size = Vector2(14, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_aut24"]
 radius = 15.583
 
-[node name="lever" type="RigidBody2D"]
-z_index = 1
+[node name="lever" type="StaticBody2D"]
+z_index = 7
 y_sort_enabled = true
 collision_mask = 2
-mass = 100.0
-gravity_scale = 0.0
-freeze = true
 
 [node name="pit_trap" type="Area2D" parent="."]
 position = Vector2(78, 7)
@@ -132,13 +129,15 @@ shape = SubResource("RectangleShape2D_pcql2")
 
 [node name="lever_sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-z_index = 1
+z_index = 7
 y_sort_enabled = true
 position = Vector2(-83, 3.00001)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_n7ix7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 7
+y_sort_enabled = true
 position = Vector2(-83, 15)
 scale = Vector2(3.08, 3.08)
 shape = SubResource("RectangleShape2D_wh3t6")
