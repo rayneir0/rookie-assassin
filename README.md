@@ -6,3 +6,4 @@ Godot: game software
 <br>Aesprite: sprites & tilemaps</br>
 
 ![Main Menu Screenshot](/screenshots/mainmenu.png?raw=true "Main Menu")
+![Gameplay Screenshot](/screenshots/gameplay.png?raw=true "Gameplay")
