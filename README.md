@@ -5,6 +5,6 @@ A rookie assassin has been given the task to steal gold from the castle. However
 Godot: game software
 <br>Aesprite: sprites & tilemaps</br>
 
-# Screenshots
+# Screenshots:
 ![Main Menu Screenshot](/screenshots/mainmenu.png?raw=true "Main Menu")
 ![Gameplay Screenshot](/screenshots/gameplay.png?raw=true "Gameplay")
